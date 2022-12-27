@@ -1,29 +1,43 @@
-console.log('Задание 1');
+console.log("1)");
 
-let num = [3, 5, 11, 22, 55];
+const length = 4;
+const valueToFill = "hello";
 
-for(let i = 0; i < num.length; i++) {
-    console.log(num[i] ** 2);
+let fillArray = (length, valueToFill) => {
+  return new Array(length).fill(valueToFill);
 };
 
-console.log('Задание 2');
+console.log(fillArray(length, valueToFill));
+// ['hello', 'hello', 'hello', 'hello']
 
-let capitals = {
-    Kyiv: 'Ukraine',
-    London: 'UK',
-    Tallinn: 'Estonia'
+console.log("2)");
+
+let obj = {
+  width: 10,
+  height: 5,
+  title: "Test Array",
+  count: 4,
 };
 
-for(let key in capitals) {
-    console.log(`${key} is the capital of ${capitals[key]}.`)
+let multiplyNumeric = (obj) => {
+  // let entries = Object.entries(obj);
+  // entries.forEach((entry) => {
+  //   let value = entry[1];
+  //   if (typeof value === "number") {
+  //     value = value ** 2;
+  //   }
+  // });
+  // let multiply = Object.fromEntries(entries);
+  // return multiply;
+
+  let multiply = Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, value ** 2]));
+  return multiply;
 };
 
-console.log('Задание 3');
-
-let arr = [2, 6, 5, 9, 15, 0, 10, 4];
-
-for(let number of arr) {
-    if(number > 4 && number < 11) {
-        console.log(number)
-    };
-};
+console.log(multiplyNumeric(obj));
+//   {
+//     width: 100,
+//     height: 25,
+//     title: 'Test Array',
+//     count: 16
+//   }
