@@ -1,5 +1,5 @@
 function pow(num, deg) {
-  if (deg == 1) {
+  if (deg === 1) {
     return num;
   } else {
     return num * pow(num, deg - 1);
