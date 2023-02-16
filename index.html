@@ -7,16 +7,57 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
     <script src="./script.js" defer></script>
-    <title>Lesson 8</title>
+    <title>Form</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div id="wrap">
+      <form name="myForm">
+        <p>
+          First Name
+          <br />
+          <input type="text" name="firstName" />
+        </p>
+        <p>
+          Last Name
+          <br />
+          <input type="text" name="lastName" />
+        </p>
+        <p>
+          Birth Date
+          <br />
+          <input type="date" name="birthDate" />
+        </p>
+
+        <div>
+          <p><input type="radio" name="gender" value="m" />Male</p>
+          <p><input type="radio" name="gender" value="f" />Female</p>
+        </div>
+
+        <select name="city">
+          <option value="0">--select city--</option>
+          <option value="aa">Kyiv</option>
+          <option value="vs">Lviv</option>
+          <option value="vn">Odessa</option>
+          <option value="sa">Cherkasy</option>
+          <option value="ae">Dnipro</option>
+        </select>
+
+        <div>
+          <p>Type your address</p>
+          <textarea name="address" cols="20" rows="5"></textarea>
+        </div>
+
+        <div>
+          <p><input type="checkbox" name="lang" value="ua" />Ukrainian</p>
+          <p><input type="checkbox" name="lang" value="en" />English</p>
+          <p><input type="checkbox" name="lang" value="de" />Deutsch</p>
+          <p><input type="checkbox" name="lang" value="jp" />Japanese</p>
+          <p><input type="checkbox" name="lang" value="ru" />Russian</p>
+        </div>
+
+        <input type="button" id="confirm" value="Confirm" />
+      </form>
+    </div>
   </body>
 </html>
