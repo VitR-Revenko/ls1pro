@@ -7,57 +7,35 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="./script.js" defer></script>
-    <title>Form</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="src/css/styles.css">
+    <title>HW 15</title>
   </head>
   <body>
-    <div id="wrap">
-      <form name="myForm">
-        <p>
-          First Name
-          <br />
-          <input type="text" name="firstName" />
-        </p>
-        <p>
-          Last Name
-          <br />
-          <input type="text" name="lastName" />
-        </p>
-        <p>
-          Birth Date
-          <br />
-          <input type="date" name="birthDate" />
-        </p>
+    <div id="main"></div>
 
-        <div>
-          <p><input type="radio" name="gender" value="m" />Male</p>
-          <p><input type="radio" name="gender" value="f" />Female</p>
+    <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal</h1>
+          </div>
+          <div class="modal-body">
+            Some info
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
-
-        <select name="city">
-          <option value="0">--select city--</option>
-          <option value="aa">Kyiv</option>
-          <option value="vs">Lviv</option>
-          <option value="vn">Odessa</option>
-          <option value="sa">Cherkasy</option>
-          <option value="ae">Dnipro</option>
-        </select>
-
-        <div>
-          <p>Type your address</p>
-          <textarea name="address" cols="20" rows="5"></textarea>
-        </div>
-
-        <div>
-          <p><input type="checkbox" name="lang" value="ua" />Ukrainian</p>
-          <p><input type="checkbox" name="lang" value="en" />English</p>
-          <p><input type="checkbox" name="lang" value="de" />Deutsch</p>
-          <p><input type="checkbox" name="lang" value="jp" />Japanese</p>
-          <p><input type="checkbox" name="lang" value="ru" />Russian</p>
-        </div>
-
-        <input type="button" id="confirm" value="Confirm" />
-      </form>
+      </div>
     </div>
+
+    <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/moment/min/moment.min.js"></script>
+    <script src="src/js/helpers/DOMhelper.js"></script>
+    <script src="src/js/script.js"></script>    
+    <!-- Друге завдання -->
+    <!-- <script src="src/js/app.js"></script> -->
   </body>
 </html>
