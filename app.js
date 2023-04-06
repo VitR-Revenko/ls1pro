@@ -1,46 +1,118 @@
-// Сутність "Людина"
-class Human {
+class MultistoryBuilding {
+  constructor(numberOfApartments) {
+    this.numberOfApartments = numberOfApartments;
+    this.apartments = [];
+  }
+
+  addApartment(apartment) {
+    this.apartments.push(apartment);
+  }
+
+  printData() {
+    document.write(`Дом с ${this.numberOfApartments} квартирами: <br>`);
+    this.apartments.forEach((apartment, index) => {
+      document.write(`Квартира №${index + 1}: <br>`);
+      apartment.printData();
+    });
+  }
+}
+
+class Apartment {
+  constructor(numberOfResidents) {
+    this.numberOfResidents = numberOfResidents;
+    this.residents = [];
+  }
+
+  addResident(resident) {
+    this.residents.push(resident);
+  }
+
+  printData() {
+    document.write(`Количество жильцов: ${this.numberOfResidents} <br>`);
+    this.residents.forEach((resident, index) => {
+      document.write(`Жилец №${index + 1}: ${resident.name}, возраст ${resident.age} <br>`);
+    });
+  }
+}
+
+class Resident {
   constructor(name, age) {
     this.name = name;
     this.age = age;
   }
-
-  info() {
-    console.log(`Name: ${this.name}, Age: ${this.age}`);
-  }
 }
 
-// Сутність "Автомобіль"
-class Car {
-  constructor(brand, model, year, licensePlate, owner) {
-    this.brand = brand;
-    this.model = model;
-    this.year = year;
-    this.licensePlate = licensePlate;
+function createButton() {
+  const button = document.createElement("button");
+	button.innerHTML = "Создать";
+  const body = document.querySelector('body');
+  body.appendChild(button);
+  button.addEventListener('click', createBuilding)
+}
 
-    if (owner.age < 18) {
-      console.log("Owner must be at least 18 years old.");
-    } else {
-      this.owner = owner;
+function createBuilding() {
+  const numberOfApartments = parseInt(prompt("Введите количество квартир в доме:"));
+  const building = new MultistoryBuilding(numberOfApartments);
+
+  for (let i = 0; i < numberOfApartments; i++) {
+    const numberOfResidents = parseInt(prompt(`Введите количество жильцов в квартире №${i + 1}:`));
+    const apartment = new Apartment(numberOfResidents);
+    building.addApartment(apartment);
+
+    for (let j = 0; j < numberOfResidents; j++) {
+      const name = prompt(`Введите имя жильца №${j + 1} в квартире №${i + 1}:`);
+      const age = parseInt(prompt(`Введите возраст жильца №${j + 1} в квартире №${i + 1}:`));
+      const resident = new Resident(name, age);
+      apartment.addResident(resident);
     }
   }
 
-  info() {
-    console.log(`${this.year} ${this.brand} ${this.model}, License Plate: ${this.licensePlate}`);
-    console.log("Owner:");
-    this.owner.info();
+  building.printData();
+}
+
+function createBuilding() {
+  const numberOfApartments = parseInt(prompt("Введите количество квартир в доме:"));
+
+  if (isNaN(numberOfApartments) || numberOfApartments === 0) {
+    alert("Некорректное количество квартир");
+    return;
+  }
+
+  const building = new MultistoryBuilding(numberOfApartments);
+
+  for (let i = 0; i < numberOfApartments; i++) {
+  let numberOfResidents = parseInt(prompt(`Введите количество жильцов в квартире №${i + 1}:`));
+  if (isNaN(numberOfResidents) || numberOfResidents === 0) {
+    alert("Некорректное количество жильцов");
+    return;
+  }
+  
+  const apartment = new Apartment(numberOfResidents);
+  building.addApartment(apartment);
+  
+  for (let j = 0; j < numberOfResidents; j++) {
+    const name = prompt(`Введите имя жильца №${j + 1} в квартире №${i + 1}:`);
+  
+    if (name === "") {
+      alert("Имя жильца не может быть пустым");
+      return;
+    }
+  
+    const ageString = prompt(`Введите возраст жильца №${j + 1} в квартире №${i + 1}:`);
+    const age = parseInt(ageString);
+  
+    if (isNaN(age) || ageString === "") {
+      alert("Некорректный возраст жильца");
+      return;
+    }
+  
+    const resident = new Resident(name, age);
+    apartment.addResident(resident);
   }
 }
 
-const v = new Human("V", 20);
-const rx7 = new Car("Mazda", "RX-7", 1999, "NC2077VV", v);
+building.printData();
+}  
 
-const johnny = new Human("Johnny", 100);
-const porsche = new Car("Porsche", "911(930)", 1977, "NC1977CP", johnny);
 
-const takumi = new Human("Takumi", 18);
-const hachiroku = new Car("Toyota", "Sprinter Trueno AE86", 1986, "13-954", takumi);
-
-rx7.info();
-porsche.info();
-hachiroku.info();
+window.addEventListener('load', createButton)
